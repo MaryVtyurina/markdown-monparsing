@@ -32,7 +32,8 @@ test-suite Commom-Parsers-Test
   hs-source-dirs:      tests,
                        src/Parsers,
                        src/Utils
-  other-modules:       Parsers,
+  other-modules:       ParserCombinators,
+                       States_Readers,
                        Helpers
   build-depends:       base >= 4 && < 5,
                        mtl,
