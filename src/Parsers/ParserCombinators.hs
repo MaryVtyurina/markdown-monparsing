@@ -35,7 +35,7 @@ item  = p <|> zero where
         p = do
             (pos, inp) <- update newstate
             guard $ not $ null inp
-            defpos       <- env
+            defpos     <- env
             guard $ onside pos defpos
             return $ head inp
 

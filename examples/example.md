@@ -1,6 +1,6 @@
 # First lvl header
 
-Paragraphs separates by empty line
+Paragraphs are separated by empty line
 
 Second paragraph. *Italic,* **Bold,** and `Monospace.`
 

@@ -132,9 +132,17 @@ paragraph = do
   return . Paragraph $ l
 
 -- |Parse unordered list
+-- unorderdList :: Parser Block
+-- unorderdList = do
+--   items <- some (token bullet >> line)
+--   return . UnorderedList $ items
+--   where
+--     bullet :: Parser Char
+--     bullet = char '*' <|> char '+' <|> char '-' >>= return
+
 unorderdList :: Parser Block
 unorderdList = do
-  items <- some (token bullet >> line)
+  items <- many1_offside (token bullet >> line)
   return . UnorderedList $ items
   where
     bullet :: Parser Char
@@ -149,7 +157,7 @@ blank = many (sat wspaceOrTab) >> char '\n' >> return Blank
 -- |Parse blockquote
 blockquote :: Parser Block
 blockquote = do
-  lines <- some (token (char '>') >> line)
+  lines <- many1_offside (token (char '>') >> line)
   return . BlockQuote $ lines
 
 -- |Черновик для латех-блоков

@@ -18,10 +18,10 @@ main = do
   [fname, "-o", outname] <- getArgs
   raw <- readFile fname
   -- putStrLn $ "\nGenerated html, will be written to " ++ outname ++ ": "
-  let tree = parse doc raw
-  print raw
-  print tree
+  let tree = fst . head $ parse doc raw
+  -- print raw
+  -- print tree
   -- putStrLn $ "Parsed markdown: " ++ show(tree)
-  -- let html = generateHTML outname tree
+  let html = generateHTML outname tree
       --print $ html
-  -- writeFile outname html
+  writeFile outname html
